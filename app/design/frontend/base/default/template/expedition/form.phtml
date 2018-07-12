@@ -1,0 +1,30 @@
+<!-- app/design/frontend/base/default/template/contact/form.phtml -->
+<form action="" method="post" id="contact-form">
+    <div class="content">
+        <h2>Formulaire de contact</h2>
+        <p>Veuillez remplir le formulaire suivant :</p>
+        <ul class="form-list">
+            <li>
+                <label for="email" class="required"><em>*</em>Adresse email</label>
+                <div class="input-box">
+                    <input type="text" name="email" id="email" class="input-text required-entry validate-email" />
+                </div>
+            </li>
+            <li>
+                <label for="message" class="required"><em>*</em>Message</label>
+                <div class="input-box">
+                    <textarea name="message" class="input-text required-entry"></textarea>
+                </div>
+            </li>
+        </ul>
+        <div class="actions">
+            <button type="submit" class="button"><span><span>Valider</span></span></button>
+        </div>
+        <p class="required">* Required Fields</p>
+    </div>
+</form>
+<script type="text/javascript">
+    //<![CDATA[
+    var contactForm = new VarienForm('contact-form');
+    //]]>
+</script>

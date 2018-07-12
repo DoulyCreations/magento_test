@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!--<default>
+        <block type="page/html" name="root" output="toHtml" template="expedition/form.phtml" />
+    </default>-->
+    <marouteperso_index_index>
+        <reference name="content">
+            <block type="core/template" name="contact_form" template="expedition/form.phtml" />
+        </reference>
+    </marouteperso_index_index>
+    <marouteperso_index_confirm>
+        <reference name="content">
+            <block type="core/template" name="contact_success" template="expedition/confirm.phtml" />
+        </reference>
+    </marouteperso_index_confirm>
+</layout>
