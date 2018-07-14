@@ -1,2 +1,4 @@
 var/cache/*
 var/session/sess_*
+var/log/*.log
+media/catalog/product/cache/*

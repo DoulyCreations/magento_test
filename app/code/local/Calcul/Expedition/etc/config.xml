@@ -5,6 +5,29 @@
             <version>0.1.0</version>
         </Calcul_Expedition>
     </modules>
+    <global>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_view_info>Calcul_Expedition_Block_Sales_Order_View_Info</sales_order_view_info>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <models>
+            <calcul_expedition>
+                <class>Calcul_Expedition_Model</class>
+                <resourceModel>calcul_expedition_resource</resourceModel>
+            </calcul_expedition>
+            <calcul_expedition_resource>
+                <class>Calcul_Expedition_Model_Resource</class>
+                <entities>
+                    <expedition>
+                        <table>calcul_expedition</table>
+                    </expedition>
+                </entities>
+            </calcul_expedition_resource>
+        </models>
+    </global>
     <frontend>
         <routers>
             <marouteperso>

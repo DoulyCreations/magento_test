@@ -2,6 +2,11 @@
 
 class Calcul_Expedition_IndexController extends Mage_Core_Controller_Front_Action
 {
+    /**
+     * @throws Exception
+     *
+     * http://localhost/magento/expedition
+     */
     public function indexAction()
     {
         $this->loadLayout();
@@ -18,9 +23,17 @@ class Calcul_Expedition_IndexController extends Mage_Core_Controller_Front_Actio
         $this->renderLayout();
     }
 
+    /**
+     * http://localhost/magento/expedition/index/confirm
+     */
     public function confirmAction()
     {
         $this->loadLayout();
+
+        $expedition = Mage::getModel('calcul_expedition/Expedition');
+        $expedition->setData('date_expedition', date('Y-m-d'));
+        $expedition->save();
+
         $this->renderLayout();
     }
 }

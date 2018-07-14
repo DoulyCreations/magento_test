@@ -3,11 +3,22 @@
     <!--<default>
         <block type="page/html" name="root" output="toHtml" template="expedition/form.phtml" />
     </default>-->
+
+    <!--<adminhtml_sales_order_view>
+        <reference name="sales_order_tabs">
+            <action method="addTab">
+                <name>order_design_details</name>
+                <block>expedition/sales_order_view_tab_design</block>
+            </action>
+        </reference>
+    </adminhtml_sales_order_view>-->
+
     <marouteperso_index_index>
         <reference name="content">
             <block type="core/template" name="contact_form" template="expedition/form.phtml" />
         </reference>
     </marouteperso_index_index>
+
     <marouteperso_index_confirm>
         <reference name="content">
             <block type="core/template" name="contact_success" template="expedition/confirm.phtml" />
