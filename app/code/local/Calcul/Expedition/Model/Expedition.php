@@ -9,6 +9,8 @@ class Calcul_Expedition_Model_Expedition extends Mage_Core_Model_Abstract
     }
 
     /*
+     * EXEMPLE DE CODE
+     * 
      * Afficher le contenu d'un message enregistré
      * en retirant les tags HTML.
      */

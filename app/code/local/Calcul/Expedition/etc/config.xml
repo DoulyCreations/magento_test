@@ -12,7 +12,14 @@
                     <sales_order_view_info>Calcul_Expedition_Block_Sales_Order_View_Info</sales_order_view_info>
                 </rewrite>
             </adminhtml>
+
+            <sales>
+                <rewrite>
+                    <order_info>Calcul_Expedition_Block_Sales_Order_Info</order_info>
+                </rewrite>
+            </sales>
         </blocks>
+
         <models>
             <calcul_expedition>
                 <class>Calcul_Expedition_Model</class>
