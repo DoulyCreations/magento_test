@@ -53,4 +53,34 @@
             </updates>
         </layout>
     </frontend>
+
+    <admin>
+        <routers>
+            <marouteadmin>
+                <use>admin</use>
+                <args>
+                    <module>Calcul_Expeditionadmin</module>
+                    <frontName>adminhelloworld</frontName>
+                </args>
+            </marouteadmin>
+        </routers>
+        <layout>
+            <updates>
+                <marouteadmin>
+                    <file>calcul_expeditionadmin.xml</file>
+                </marouteadmin>
+            </updates>
+        </layout>
+    </admin>
+
+
+    <!--<adminhtml>
+        <layout>
+            <updates>
+                <adminexpedition>
+                    <file>adminexpedition.xml</file>
+                </adminexpedition>
+            </updates>
+        </layout>
+    </adminhtml>-->
 </config>

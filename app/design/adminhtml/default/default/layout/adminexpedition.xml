@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_adminexpedition_index>
+        <block type="core/template" output="toHtml" name="templateBlock" template="expedition/adminexpedition.phtml" />
+    </adminhtml_adminexpedition_index>
+</layout>
