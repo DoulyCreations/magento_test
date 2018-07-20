@@ -6,7 +6,6 @@
             <th><?php echo __('Order number') ?></th>
             <th><?php echo __('Status') ?></th>
             <th><?php echo __('Order Date'); ?></th>
-            <th><?php echo __('Have expedition'); ?></th>
             <th><?php echo __('Expediable'); ?></th>
             <th><?php echo __('Action(s)'); ?></th>
         </tr>
@@ -28,8 +27,17 @@
             /** @var Mage_Sales_Model_Order $oOrder */
             $oOrder = $oData['o_order'];
 
-            $sUrl = Mage::helper("adminhtml")->getUrl("adminexpe/adminhtml_creatives/index", ['date' => $sDate]);
             $sUrlOrder = Mage::helper("adminhtml")->getUrl("adminhtml/sales_order/view", ['order_id' => $oOrder->getData('entity_id')]);
+
+            $sTodayDate = new DateTime();
+            $sShippingDate = new DateTime($aExpedition['date_expedition']);
+
+            $interval = $sTodayDate->diff($sShippingDate);
+            $sDiffDays = $interval->format('%R%a');
+            $sExpediable = 'yes';
+            if($sDiffDays > 0) {
+                $sExpediable = 'no';
+            }
 
             ?>
             <tr>
@@ -37,8 +45,7 @@
                 <td><?php echo $oOrder->getData('increment_id'); ?></td>
                 <td><?php echo $oOrder->getData('status'); ?></td>
                 <td><?php echo $oOrder->getData('created_at'); ?></td>
-                <td>yes/no</td>
-                <td>yes/no</td>
+                <td><?php echo $sExpediable; ?></td>
                 <td><a href="<?php echo $sUrlOrder; ?>" target="_blank"><?php echo __('View order'); ?></a></td>
             </tr>
             <?php

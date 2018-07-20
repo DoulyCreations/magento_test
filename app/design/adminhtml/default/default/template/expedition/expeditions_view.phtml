@@ -30,8 +30,12 @@
 
 <?php
 if ($this->getData('data_list')) {
+    // TODO : Voir comment passer les données avec cette méthode...
+    // On dirait que cette méthode est prévue pour inclure uniquement du HTML sans données...
+    /*echo $this->getLayout()->createBlock('core/template')
+        ->setTemplate('expedition/expeditions_view_table.phtml')->toHtml();*/
+
 
     include __DIR__.'/expeditions_view_table.phtml';
-
 }
 ?>

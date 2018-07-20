@@ -46,9 +46,11 @@ class Calcul_Expedition_Adminhtml_CreativesController extends Mage_Adminhtml_Con
             throw new Exception('Error initialize block');
         }
 
-        $aDatas = $this->getListOrdersByDateExpedition(date('Y-m-d'));
+        $sDate = date('Y-m-d');
+        $aDatas = $this->getListOrdersByDateExpedition($sDate);
 
         $oBlock->setData('data_list', $aDatas);
+        $oBlock->setData('choose_date', $sDate);
 
         $this->renderLayout();
     }
@@ -68,11 +70,12 @@ class Calcul_Expedition_Adminhtml_CreativesController extends Mage_Adminhtml_Con
             throw new Exception('Error initialize block');
         }
 
-        $sDate = strftime("%y-%m-%d", mktime(0, 0, 0, date('m'), date('d')-1, date('y')));
+        $sDate = strftime("%Y-%m-%d", mktime(0, 0, 0, date('m'), date('d')-1, date('y')));
 
         $aDatas = $this->getListOrdersByDateExpedition($sDate);
 
         $oBlock->setData('data_list', $aDatas);
+        $oBlock->setData('choose_date', $sDate);
 
         $this->renderLayout();
     }

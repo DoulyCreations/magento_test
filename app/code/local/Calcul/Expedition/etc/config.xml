@@ -113,20 +113,25 @@
                         <action>expedition/view</action>
                     </expedprevues>
 
-                    <expedprevuesadmin>
-                        <title>Voir Expeditions prevues (admin)</title>
-                        <action>adminexpe/adminhtml_creatives/index</action>
-                    </expedprevuesadmin>
+                    <expedprevuesadm translate="title" module="module">
+                        <title>Expeditions prévues (admin)</title>
+                        <children>
+                            <expedprevuesadmin>
+                                <title>Voir Expeditions prevues</title>
+                                <action>adminexpe/adminhtml_creatives/index</action>
+                            </expedprevuesadmin>
 
-                    <expedprevuesadmintoday>
-                        <title>Voir Expeditions prevues aujourd'hui (admin)</title>
-                        <action>adminexpe/adminhtml_creatives/today</action>
-                    </expedprevuesadmintoday>
+                            <expedprevuesadmintoday>
+                                <title>Voir Expeditions prevues aujourd'hui</title>
+                                <action>adminexpe/adminhtml_creatives/today</action>
+                            </expedprevuesadmintoday>
 
-                    <expedprevuesadminyesterday>
-                        <title>Voir Expeditions prevues hier (admin)</title>
-                        <action>adminexpe/adminhtml_creatives/yesterday</action>
-                    </expedprevuesadminyesterday>
+                            <expedprevuesadminyesterday>
+                                <title>Voir Expeditions prevues hier</title>
+                                <action>adminexpe/adminhtml_creatives/yesterday</action>
+                            </expedprevuesadminyesterday>
+                        </children>
+                    </expedprevuesadm>
 
                 </children>
             </module>
