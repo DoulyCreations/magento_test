@@ -25,7 +25,7 @@
 
 <p class="order-date"><?php echo $this->__('Order Date: %s', $this->formatDate($_order->getCreatedAtStoreDate(), 'long')) ?></p>
 
-<p style="margin-top: 10px;">Expedition Date: <?php echo $this->formatDate($this->getExpeditionDate($_order), 'long'); ?></p>
+<p style="margin-top: 10px;"><?php echo $this->__('Expedition Date'); ?>: <?php echo $this->formatDate($this->getExpeditionDate($_order), 'long'); ?></p>
 
 
 <?php if (!$_order->getIsVirtual()): ?>

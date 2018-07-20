@@ -13,20 +13,21 @@
         </reference>
     </adminhtml_sales_order_view>-->
 
-    <marouteperso_index_index>
+    <routingexpedition_index_index>
         <reference name="content">
             <block type="core/template" name="contact_form" template="expedition/form.phtml" />
         </reference>
-        <!--<reference name="head">
-            <action method="addJs">
-                <script>js/custom-script.js</script>
-            </action>
-        </reference>-->
-    </marouteperso_index_index>
+    </routingexpedition_index_index>
 
-    <marouteperso_index_confirm>
+    <routingexpedition_index_confirm>
         <reference name="content">
             <block type="core/template" name="contact_success" template="expedition/confirm.phtml" />
         </reference>
-    </marouteperso_index_confirm>
+    </routingexpedition_index_confirm>
+
+    <routingexpedition_view_index>
+        <reference name="content">
+            <block type="core/template" name="list_expedition" template="expedition/expeditions_view.phtml" />
+        </reference>
+    </routingexpedition_view_index>
 </layout>

@@ -4,8 +4,6 @@ class Calcul_Expeditionadmin_IndexController extends Mage_Adminhtml_Controller_A
 {
     /**
      * @throws Exception
-     *
-     * http://localhost/magento/expedition
      */
     public function indexAction()
     {

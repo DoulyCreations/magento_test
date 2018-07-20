@@ -1,0 +1,37 @@
+<?php echo __('Choisissez une date d\'expédition :'); ?>
+
+<table style="margin-top: 25px;">
+    <tr>
+        <th><?php echo __('Expedition Date'); ?></th>
+    </tr>
+    <?php
+
+    /** @var Calcul_Expedition_Model_Expedition $data */
+    foreach ($this->getData('data_list_dates') as $data) {
+        $sDate = $data['date_expedition'];
+
+        //$sKey = $this->getRequest()->getParam('key');
+        //$sKey = Mage::getSingleton('adminhtml/url')->getSecretKey("adminexpe/adminhtml_creatives/index/");
+
+        /*$sUrl = $this->getUrl('adminexpe/adminhtml_creatives/', [
+            'date' => $sDate,
+            'key' => $sKey
+        ]);*/
+
+        // Cette méthode gère bien la clé à passer en paramètre :
+        $sUrl = Mage::helper("adminhtml")->getUrl("adminexpe/adminhtml_creatives/index", ['date' => $sDate]);
+
+        echo '<tr><td><a href="' . $sUrl . '">' . $sDate . '</a></td></tr>';
+    }
+
+    ?>
+</table>
+
+
+<?php
+if ($this->getData('data_list')) {
+
+    include __DIR__.'/expeditions_view_table.phtml';
+
+}
+?>

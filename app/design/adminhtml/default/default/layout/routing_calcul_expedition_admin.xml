@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!--<default>
+        <block type="page/html" name="root" output="toHtml" template="expedition/default.phtml" />
+    </default>-->
+
+    <adminexpe_adminhtml_creatives_index>
+        <reference name="content">
+            <block type="core/template" name="list_expedition" template="expedition/expeditions_view.phtml" />
+        </reference>
+    </adminexpe_adminhtml_creatives_index>
+
+    <adminexpe_adminhtml_creatives_today>
+        <reference name="content">
+            <block type="core/template" name="list_expedition" template="expedition/expeditions_view_today.phtml" />
+        </reference>
+    </adminexpe_adminhtml_creatives_today>
+
+    <adminexpe_adminhtml_creatives_yesterday>
+        <reference name="content">
+            <block type="core/template" name="list_expedition" template="expedition/expeditions_view_yesterday.phtml" />
+        </reference>
+    </adminexpe_adminhtml_creatives_yesterday>
+</layout>

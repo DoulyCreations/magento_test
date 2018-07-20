@@ -3,16 +3,22 @@
     <modules>
         <Calcul_Expedition>
             <version>0.1.0</version>
+            <!-- Notre module a besoin du module adminhtml -->
+            <depends>
+                <Mage_Adminhtml />
+            </depends>
         </Calcul_Expedition>
     </modules>
     <global>
         <blocks>
+            <!-- Surcharge vue backend visualisation commande -->
             <adminhtml>
                 <rewrite>
                     <sales_order_view_info>Calcul_Expedition_Block_Sales_Order_View_Info</sales_order_view_info>
                 </rewrite>
             </adminhtml>
 
+            <!-- Surcharge vue frontend visualisation commande -->
             <sales>
                 <rewrite>
                     <order_info>Calcul_Expedition_Block_Sales_Order_Info</order_info>
@@ -34,27 +40,160 @@
                 </entities>
             </calcul_expedition_resource>
         </models>
+
+        <helpers>
+            <module>
+                <class>Calcul_Expedition_Helper</class>
+            </module>
+        </helpers>
+
+        <!-- Ajout de champs en BDD -->
+        <resources>
+            <calcul_expedition_setup>
+                <setup>
+                    <module>Calcul_Expedition</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </calcul_expedition_setup>
+        </resources>
     </global>
+
     <frontend>
         <routers>
-            <marouteperso>
+            <routingexpedition>
+                <!-- standard /// admin -->
                 <use>standard</use>
                 <args>
                     <module>Calcul_Expedition</module>
+                    <!-- URL de base du module -->
                     <frontName>expedition</frontName>
                 </args>
-            </marouteperso>
+            </routingexpedition>
         </routers>
         <layout>
             <updates>
-                <marouteperso>
-                    <file>calcul_expedition.xml</file>
-                </marouteperso>
+                <routingexpedition>
+                    <file>routing_calcul_expedition.xml</file>
+                </routingexpedition>
             </updates>
         </layout>
     </frontend>
 
+    <adminhtml>
+        <!--Définition des menus et sous menus-->
+        <menu>
+            <module translate="title" module="module">
+                <title>Mon Menu Perso</title>
+                <sort_order>80</sort_order>
+                <children>
+                    <!-- Formulaire de test -->
+                    <formfront translate="title" module="module">
+                        <title>Formulaire frontend test</title>
+                        <children>
+                            <formfrontform translate="title" module="module">
+                                <title>Formulaire</title>
+                                <action>expedition</action>
+                            </formfrontform>
+                            <formfrontconfirm translate="title" module="module">
+                                <title>Confirmation</title>
+                                <action>expedition/index/confirm</action>
+                            </formfrontconfirm>
+                        </children>
+                    </formfront>
+
+                    <expedfront>
+                        <title>Voir date expe sur commande (frontend)</title>
+                        <action>sales/order/view/order_id/1/</action>
+                    </expedfront>
+
+                    <expedprevues>
+                        <title>Voir Expeditions prevues (frontend)</title>
+                        <action>expedition/view</action>
+                    </expedprevues>
+
+                    <expedprevuesadmin>
+                        <title>Voir Expeditions prevues (admin)</title>
+                        <action>adminexpe/adminhtml_creatives/index</action>
+                    </expedprevuesadmin>
+
+                    <expedprevuesadmintoday>
+                        <title>Voir Expeditions prevues aujourd'hui (admin)</title>
+                        <action>adminexpe/adminhtml_creatives/today</action>
+                    </expedprevuesadmintoday>
+
+                    <expedprevuesadminyesterday>
+                        <title>Voir Expeditions prevues hier (admin)</title>
+                        <action>adminexpe/adminhtml_creatives/yesterday</action>
+                    </expedprevuesadminyesterday>
+
+                </children>
+            </module>
+        </menu>
+
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <module>
+                            <title>Mon Menu Perso</title>
+                            <sort_order>80</sort_order>
+                            <children>
+                                <products>
+                                    <title>Menu 1</title>
+                                </products>
+                                <attributes>
+                                    <title>Menu 2</title>
+                                    <children>
+                                        <attributes>
+                                            <title>Menu 2.1</title>
+                                        </attributes>
+                                        <sets>
+                                            <title>Menu 2.2</title>
+                                        </sets>
+                                    </children>
+                                </attributes>
+                            </children>
+                        </module>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+
+        <layout>
+            <updates>
+                <adminexpe>
+                    <file>routing_calcul_expedition_admin.xml</file>
+                </adminexpe>
+            </updates>
+        </layout>
+    </adminhtml>
+
     <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Calcul_Expedition before="Mage_Adminhtml">Calcul_Expedition_Adminhtml</Calcul_Expedition>
+                    </modules>
+                </args>
+            </adminhtml>
+
+            <adminexpe>
+                <use>admin</use>
+                <args>
+                    <module>Calcul_Expedition</module>
+                    <frontName>adminexpe</frontName>
+                </args>
+            </adminexpe>
+
+        </routers>
+    </admin>
+
+
+
+    <!--<admin>
         <routers>
             <marouteadmin>
                 <use>admin</use>
@@ -71,7 +210,7 @@
                 </marouteadmin>
             </updates>
         </layout>
-    </admin>
+    </admin>-->
 
 
     <!--<adminhtml>

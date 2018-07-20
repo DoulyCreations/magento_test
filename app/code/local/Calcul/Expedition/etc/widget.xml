@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<widgets>
+
+
+
+    <!--
+    <landing_page type="ecommerceteam_sln/landing_widget_default" translate="name description" module="ecommerceteam_sln">
+        <name>Landing Page Widget</name>
+        <description>Html widget with link to custom filtered products</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <description translate="label">
+                <required>0</required>
+                <visible>1</visible>
+                <label>Description</label>
+                <type>text</type>
+            </description>
+            <page_id translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value>5</value>
+                <label>Page</label>
+                <type>label</type>
+                <helper_block>
+                    <type>ecommerceteam_sln/adminhtml_landing_page_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Page...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </page_id>
+        </parameters>
+    </landing_page>
+    <category_widget type="ecommerceteam_sln/catalog_category_widget_default" translate="name description" module="ecommerceteam_sln">
+        <name>Category Widget</name>
+        <description>Html widget with link to category</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <description translate="label">
+                <required>0</required>
+                <visible>1</visible>
+                <label>Description</label>
+                <type>text</type>
+            </description>
+            <category_id translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value>5</value>
+                <label>Category</label>
+                <type>label</type>
+                <helper_block>
+                    <type>adminhtml/catalog_category_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Category...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </category_id>
+        </parameters>
+    </category_widget>
+    -->
+</widgets>

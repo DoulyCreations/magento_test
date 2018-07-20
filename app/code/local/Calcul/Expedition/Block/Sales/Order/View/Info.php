@@ -4,15 +4,15 @@ class Calcul_Expedition_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block
 {
     public function __construct(array $args = array())
     {
-        //$this->setTemplate('expedition/sales_order_view_info.phtml');
-
         parent::__construct($args);
     }
 
     /**
      * @return null|string
+     * @throws Exception
      *
      * Surcharge view admin méthode crado...
+     * Je n'ai pas réussi à surcharger la vue...
      *
      * http://localhost/magento/index.php/admin/sales_order/view/order_id/1/key/ef3b6ac1b208b884ed2914d364a7073a/
      */
@@ -27,36 +27,17 @@ class Calcul_Expedition_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block
 
         $sUrlAjax = $this->getUrl('expedition/index/updateDateExpedition');
 
-        $sActionDate = " - <button type='button' class='scalable' onclick='editExpeditionDate();'>Add/Modify Expedition Date</button>";
+        $sActionDate = " - <button type='button' class='scalable' onclick='editExpeditionDate(\"".$sUrlAjax."\", \"".$sParamOrderId."\", \"".$sDateExpedition."\");'>Add/Modify Expedition Date</button>";
 
         $sAddInfos = '</strong></td></tr>
             <tr>
             <td class="label">Expedition Date</td>
-            <td class="value"><strong id="date_expedition_value">' . $sDateExpedition . $sActionDate . '</strong>';
+            <td class="value"><strong id="date_expedition_value">' . $sDateExpedition .'</strong>' . $sActionDate;
 
+        // TODO : Voir pour ajouter dans le xml addJs...
         $sJs = '
-            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-            <script type="text/javascript">
-                var $j = jQuery.noConflict();
-            
-                function editExpeditionDate () {
-                    var dateExpedition = prompt("Expedition Date:", "' . $sDateExpedition . '");
-                    
-                    if (dateExpedition == null || dateExpedition === "") {
-                        // Cancel, Do Nothing...
-                    } else {
-                        $j.ajax({
-                            url: "'.$sUrlAjax.'",
-                            type: "POST",
-                            data: "date="+dateExpedition+"&order_id='.$sParamOrderId.'",
-                            success: function(data) {
-                                $j("#date_expedition_value").html(dateExpedition+" (<span style=\"color:green;\">update with success</span>)'.$sActionDate.'")
-                            }
-                        });
-                        
-                    }
-                }
-            </script>
+            <script src="'.$this->getSkinUrl('js/jquery-3.3.1.min.js').'"></script>
+            <script src="'.$this->getSkinUrl('js/expedition_backend.js').'"></script>
         ';
 
         return parent::getOrderStoreName() . $sAddInfos . $sJs;

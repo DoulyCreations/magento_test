@@ -1,0 +1,51 @@
+<?php echo __('Choisissez une date d\'expédition :'); ?>
+
+    <table style="margin-top: 25px;">
+        <tr>
+            <th><?php echo __('Expedition Date'); ?></th>
+        </tr>
+        <?php
+
+        /** @var Calcul_Expedition_Model_Expedition $data */
+        foreach ($this->getData('data_list') as $data) {
+            $sDate = $data['date_expedition'];
+
+            $sUrl = $this->getUrl('expedition/view/index/', ['date' => $sDate]);
+            echo '<tr><td><a href="' . $sUrl . '">' . $sDate . '</a></td></tr>';
+        }
+
+        ?>
+    </table>
+
+
+<?php
+if ($this->getData('order_list_by_expedition')) {
+    ?>
+    <table style="margin-top:25px; width:100%;">
+        <tr>
+            <th><?php echo __('Expedition Date'); ?></th>
+            <th><?php echo __('Order number') ?></th>
+            <th><?php echo __('Status') ?></th>
+            <th><?php echo __('Order Date'); ?></th>
+        </tr>
+    <?php
+
+    foreach ($this->getData('order_list_by_expedition') as $oData) {
+        $aExpedition = $oData['a_expedition'];
+        /** @var Mage_Sales_Model_Order $oOrder */
+        $oOrder = $oData['o_order'];
+
+        ?>
+        <tr>
+            <td><?php echo $aExpedition['date_expedition']; ?></td>
+            <td><?php echo $oOrder->getData('increment_id'); ?></td>
+            <td><?php echo $oOrder->getData('status'); ?></td>
+            <td><?php echo $oOrder->getData('created_at'); ?></td>
+        </tr>
+        <?php
+    }
+    ?>
+    </table>
+    <?php
+}
+?>

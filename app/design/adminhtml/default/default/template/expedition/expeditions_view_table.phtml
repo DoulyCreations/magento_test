@@ -1,0 +1,48 @@
+<div class="grid np">
+    <table cellspacing="0" class="data order-tables" style="margin-top: 25px;">
+        <thead>
+        <tr class="headings">
+            <th><?php echo __('Expedition Date'); ?></th>
+            <th><?php echo __('Order number') ?></th>
+            <th><?php echo __('Status') ?></th>
+            <th><?php echo __('Order Date'); ?></th>
+            <th><?php echo __('Have expedition'); ?></th>
+            <th><?php echo __('Expediable'); ?></th>
+            <th><?php echo __('Action(s)'); ?></th>
+        </tr>
+        </thead>
+        <?php
+
+        $aDataList = $this->getData('data_list') ?? [];
+
+        if(!$aDataList) {
+            ?>
+            <tr>
+                <td colspan="7" align="center"><?php echo ('No expeditions found'); ?></td>
+            </tr>
+            <?php
+        }
+
+        foreach ($aDataList as $oData) {
+            $aExpedition = $oData['a_expedition'];
+            /** @var Mage_Sales_Model_Order $oOrder */
+            $oOrder = $oData['o_order'];
+
+            $sUrl = Mage::helper("adminhtml")->getUrl("adminexpe/adminhtml_creatives/index", ['date' => $sDate]);
+            $sUrlOrder = Mage::helper("adminhtml")->getUrl("adminhtml/sales_order/view", ['order_id' => $oOrder->getData('entity_id')]);
+
+            ?>
+            <tr>
+                <td><?php echo $aExpedition['date_expedition']; ?></td>
+                <td><?php echo $oOrder->getData('increment_id'); ?></td>
+                <td><?php echo $oOrder->getData('status'); ?></td>
+                <td><?php echo $oOrder->getData('created_at'); ?></td>
+                <td>yes/no</td>
+                <td>yes/no</td>
+                <td><a href="<?php echo $sUrlOrder; ?>" target="_blank"><?php echo __('View order'); ?></a></td>
+            </tr>
+            <?php
+        }
+        ?>
+    </table>
+</div>
