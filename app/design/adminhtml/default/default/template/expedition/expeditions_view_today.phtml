@@ -1,6 +1,8 @@
 <h3><?php echo __('Today Expeditions :'); ?> (<?php echo $this->getData('choose_date'); ?>)</h3>
 
 <?php
-    echo $this->getLayout()->createBlock('core/template')
-        ->setTemplate('expedition/expeditions_view_table.phtml')->toHtml();
+    /*echo $this->getLayout()->createBlock('core/template')
+        ->setTemplate('expedition/expeditions_view_table.phtml')->toHtml();*/
+
+    include __DIR__.'/expeditions_view_table.phtml';
 ?>
