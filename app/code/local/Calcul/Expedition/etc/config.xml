@@ -58,6 +58,15 @@
                 </connection>
             </calcul_expedition_setup>
         </resources>
+
+        <template>
+            <email>
+                <testmailer_template module="testmailer">
+                    <file>testmailer.html</file>
+                    <type>html</type>
+                </testmailer_template>
+            </email>
+        </template>
     </global>
 
     <frontend>

@@ -6,4 +6,17 @@
             <codePool>local</codePool>
         </Calcul_Expedition>
     </modules>
+    <crontab>
+        <jobs>
+            <cron_test_email>
+                <schedule>
+                    <cron_expr>0 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <!--<model>cron/cron::crontask</model>-->
+                    <model>calcul_expedition/observer::sendEmail</model>
+                </run>
+            </cron_test_email>
+        </jobs>
+    </crontab>
 </config>
