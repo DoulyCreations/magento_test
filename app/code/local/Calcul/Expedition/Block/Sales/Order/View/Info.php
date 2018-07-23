@@ -27,7 +27,13 @@ class Calcul_Expedition_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block
 
         $sUrlAjax = $this->getUrl('expedition/index/updateDateExpedition');
 
-        $sActionDate = " - <button type='button' class='scalable' onclick='editExpeditionDate(\"".$sUrlAjax."\", \"".$sParamOrderId."\", \"".$sDateExpedition."\");'>Add/Modify Expedition Date</button>";
+        // TODO : Controle des droits à faire dans le controller...
+        $bRightAction = Mage::getSingleton('admin/session')->isAllowed('admin/sales/order/calcul_expedition');
+
+        $sActionDate = '';
+        if($bRightAction) {
+            $sActionDate = " - <button type='button' class='scalable' onclick='editExpeditionDate(\"".$sUrlAjax."\", \"".$sParamOrderId."\", \"".$sDateExpedition."\");'>Add/Modify Expedition Date</button>";
+        }
 
         $sAddInfos = '</strong></td></tr>
             <tr>

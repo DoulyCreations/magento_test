@@ -11,7 +11,9 @@ function editExpeditionDate (url, order_id, date_expedition) {
             type: "POST",
             data: "date="+dateExpedition+"&order_id="+order_id,
             success: function(data) {
-                $j("#date_expedition_value").html(dateExpedition+" (<span style=\"color:green;\">update with success</span>)")
+                if(data.status === 'success') {
+                    $j("#date_expedition_value").html(dateExpedition+" (<span style=\"color:green;\">update with success</span>)");
+                }
             }
         });
 

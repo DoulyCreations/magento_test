@@ -39,9 +39,11 @@ class Calcul_Expedition_IndexController extends Mage_Core_Controller_Front_Actio
     public function updateDateExpeditionAction()
     {
         $postData = $this->getRequest()->getParams();
+        //$bRightAction = Mage::getSingleton('admin/session')->isAllowed('admin/sales/order/calcul_expedition');
+        $bRightAction = true;
 
-        if (!$postData) {
-            exit;
+        if (!$postData || !$bRightAction) {
+            json_encode(['status' => 'error']);
         }
 
         $sDate = $postData['date'];
@@ -62,7 +64,10 @@ class Calcul_Expedition_IndexController extends Mage_Core_Controller_Front_Actio
                 $oExpedition->setData('order_id', $sParamOrderId);
             }
 
-            $oExpedition->save();
+            if($oExpedition->save()) {
+                $this->getResponse()->setHeader('Content-type', 'application/json');
+                $this->getResponse()->setBody(Mage::helper('core')->jsonEncode(['status' => 'success']));
+            }
         }
     }
 }

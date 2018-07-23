@@ -93,19 +93,19 @@
     <adminhtml>
         <!--Définition des menus et sous menus-->
         <menu>
-            <module translate="title" module="module">
+            <module translate="title">
                 <title>Mon Menu Perso</title>
                 <sort_order>80</sort_order>
                 <children>
                     <!-- Formulaire de test -->
-                    <formfront translate="title" module="module">
+                    <formfront translate="title">
                         <title>Formulaire frontend test</title>
                         <children>
-                            <formfrontform translate="title" module="module">
+                            <formfrontform translate="title">
                                 <title>Formulaire</title>
                                 <action>expedition</action>
                             </formfrontform>
-                            <formfrontconfirm translate="title" module="module">
+                            <formfrontconfirm translate="title">
                                 <title>Confirmation</title>
                                 <action>expedition/index/confirm</action>
                             </formfrontconfirm>
@@ -122,7 +122,7 @@
                         <action>expedition/view</action>
                     </expedprevues>
 
-                    <expedprevuesadm translate="title" module="module">
+                    <expedprevuesadm translate="title">
                         <title>Expeditions prévues (admin)</title>
                         <children>
                             <expedprevuesadmin>
@@ -150,26 +150,18 @@
             <resources>
                 <admin>
                     <children>
-                        <module>
-                            <title>Mon Menu Perso</title>
-                            <sort_order>80</sort_order>
+                        <sales>
                             <children>
-                                <products>
-                                    <title>Menu 1</title>
-                                </products>
-                                <attributes>
-                                    <title>Menu 2</title>
+                                <order>
                                     <children>
-                                        <attributes>
-                                            <title>Menu 2.1</title>
-                                        </attributes>
-                                        <sets>
-                                            <title>Menu 2.2</title>
-                                        </sets>
+                                        <calcul_expedition>
+                                            <title>Gestion Expedition (MENU SPECIFIQUE BENOIT)</title>
+                                            <sort_order>12</sort_order>
+                                        </calcul_expedition>
                                     </children>
-                                </attributes>
+                                </order>
                             </children>
-                        </module>
+                        </sales>
                     </children>
                 </admin>
             </resources>
@@ -205,35 +197,4 @@
         </routers>
     </admin>
 
-
-
-    <!--<admin>
-        <routers>
-            <marouteadmin>
-                <use>admin</use>
-                <args>
-                    <module>Calcul_Expeditionadmin</module>
-                    <frontName>adminhelloworld</frontName>
-                </args>
-            </marouteadmin>
-        </routers>
-        <layout>
-            <updates>
-                <marouteadmin>
-                    <file>calcul_expeditionadmin.xml</file>
-                </marouteadmin>
-            </updates>
-        </layout>
-    </admin>-->
-
-
-    <!--<adminhtml>
-        <layout>
-            <updates>
-                <adminexpedition>
-                    <file>adminexpedition.xml</file>
-                </adminexpedition>
-            </updates>
-        </layout>
-    </adminhtml>-->
 </config>
