@@ -88,6 +88,15 @@
                 </routingexpedition>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <Calcul_Expedition>
+                    <files>
+                        <default>Calcul_Expedition.csv</default>
+                    </files>
+                </Calcul_Expedition>
+            </modules>
+        </translate>
     </frontend>
 
     <adminhtml>
